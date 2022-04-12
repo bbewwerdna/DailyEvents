@@ -20,15 +20,15 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.backend.modal.Restaurants;
 import com.example.backend.repository.RestaurantRepository;
 
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping(value="/")
+@RequestMapping(value="/events")
 public class RestaurantController {
 	
 	@Autowired
 	private RestaurantRepository repository;
 	
-	@PostMapping(value="saveRestaurant")
+	@PostMapping(value="/saveRestaurant")
 	public ResponseEntity<Restaurants> saveRestaurant(@RequestBody Restaurants restaurant) {
 		try {
 			Restaurants rest = repository.save(restaurant);
@@ -38,12 +38,12 @@ public class RestaurantController {
 		}
 	}
 	
-	@GetMapping("getAll")
+	@GetMapping("/getAll")
     public ResponseEntity<List<Restaurants>> getAll() {
         return new ResponseEntity<>(repository.findAll(), HttpStatus.OK);
     }
 	
-	@RequestMapping(value="getRestaurants", method = RequestMethod.GET)
+	@RequestMapping(value="/getRestaurants", method = RequestMethod.GET)
 	public List<Restaurants> getRestaurants(){
 		List<Restaurants> rest = repository.findAll();
 		System.out.println("hi");
