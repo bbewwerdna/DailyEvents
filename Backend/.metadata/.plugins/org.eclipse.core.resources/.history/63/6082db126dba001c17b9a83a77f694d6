@@ -1,0 +1,45 @@
+package com.example.backend.modal;
+
+import java.util.ArrayList;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString
+
+@Data
+@Document(collection = "Restaurants")
+public class Restaurants extends Special{
+	
+	@Id
+	private int _id;
+	
+	private String restaurantName;
+	private String streetAddress;
+	private int zipCode;
+	private String city;
+	private String state;
+	private String openHours;
+//	private Special special;
+	
+	public Restaurants(int id, String name, String address, int zip, String ct, String st, String hrs, Special sp){
+		super();
+		this._id =id;
+		this.restaurantName=name;
+		this.streetAddress = address;
+		this.zipCode=zip;
+		this.city=ct;
+		this.state=st;
+		this.openHours=hrs;
+//		this.special=sp;
+	}
+	
+
+}

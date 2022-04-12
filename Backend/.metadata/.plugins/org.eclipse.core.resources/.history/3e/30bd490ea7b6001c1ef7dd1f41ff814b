@@ -1,0 +1,5 @@
+package com.examplet.backend.repository;
+
+public class RestaurantRepository {
+
+}

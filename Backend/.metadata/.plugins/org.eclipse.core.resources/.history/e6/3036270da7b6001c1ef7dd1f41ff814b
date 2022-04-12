@@ -1,0 +1,5 @@
+package com.examplet.backend.resource;
+
+public class RestaurantController {
+
+}

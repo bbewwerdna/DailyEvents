@@ -1,0 +1,20 @@
+package com.example.backend.modal;
+
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString
+
+@Document(collection = "Restaurants")
+public class Restaurants extends Address{
+	
+	
+	private int id;
+	private String restaurantName;
+
+}
