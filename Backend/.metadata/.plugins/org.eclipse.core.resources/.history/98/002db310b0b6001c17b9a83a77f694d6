@@ -1,9 +1,0 @@
-package com.examplet.backend.repository;
-
-import org.springframework.data.mongodb.repository.MongoRepository;
-
-import com.example.backend.modal.Restaurants;
-
-public interface RestaurantRepository extends MongoRepository<Restaurants,Integer>{
-
-}

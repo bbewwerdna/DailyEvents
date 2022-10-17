@@ -1,5 +1,7 @@
 package com.example.backend.resource;
 
+import java.io.Console;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,7 +20,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.backend.modal.Restaurants;
+import com.example.backend.modal.Special;
 import com.example.backend.repository.RestaurantRepository;
+import com.example.backend.repository.SpecialEventRepository;
+import com.example.backend.resource.TestFile;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
@@ -28,18 +33,28 @@ public class RestaurantController {
 	@Autowired
 	private RestaurantRepository repository;
 	
+	@Autowired
+	private SpecialEventRepository specialRepository;
+	@Autowired
+	public TestFile testFile;
+	
 	@PostMapping(value="/saveRestaurant")
 	public ResponseEntity<Restaurants> saveRestaurant(@RequestBody Restaurants restaurant) {
-		try {
-			Restaurants rest = repository.save(restaurant);
-			return new ResponseEntity<>(rest, HttpStatus.CREATED);
-		}catch(Exception e){
-			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-		}
+		Restaurants rest = repository.save(restaurant);
+		return new ResponseEntity<>(rest, HttpStatus.CREATED);
 	}
+	
+	
 	
 	@GetMapping("/getAll")
     public ResponseEntity<List<Restaurants>> getAll() {
+		ArrayList<Integer> nums = new ArrayList<>(6);
+		nums.add(1);
+		nums.add(4);
+		nums.add(5);
+		nums.add(6);
+		nums.add(8);
+		System.out.println(testFile.searchArray(nums, 6));
         return new ResponseEntity<>(repository.findAll(), HttpStatus.OK);
     }
 	
@@ -59,6 +74,19 @@ public class RestaurantController {
 	public String deleteRestaurant(@PathVariable ObjectId id) {
 		repository.deleteById(id);
 		return "deleted restaurant";
+	}
+	
+	
+	// special event
+	@GetMapping("/getSpecialEvents")
+	public ResponseEntity<List<Special>> getSpecials(){
+		return new ResponseEntity<>(specialRepository.findAll(), HttpStatus.OK);
+		
+	}
+	@PostMapping("/addSpecialEvent")
+	public ResponseEntity<Special> addSpecial(@RequestBody Special special){
+		Special eventSpecial = specialRepository.save(special);
+		return new ResponseEntity<>(eventSpecial, HttpStatus.CREATED);
 	}
 	
 }

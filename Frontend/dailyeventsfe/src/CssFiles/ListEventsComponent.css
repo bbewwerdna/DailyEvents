@@ -1,0 +1,28 @@
+.Event-Before {
+    margin-left: auto;
+    margin-right: auto;
+    margin-block-end: auto;
+    border-radius: 30px;
+    
+    width: 250px;
+    height: 60px;
+    background: green;
+    transition: width 2s, height 2s, transform 2s;
+    transition-delay: .5s;
+}
+.Event-Before:hover {
+    width: 500px;
+    height: 200px;
+    text-size-adjust: auto;
+    
+    
+    
+    
+}
+h3{
+
+}
+
+.hide{
+    display: none;
+}

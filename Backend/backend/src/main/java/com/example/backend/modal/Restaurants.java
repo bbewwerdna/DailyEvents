@@ -18,46 +18,45 @@ import lombok.ToString;
 @ToString
 
 @Data
-@Document(collection = "Restaurants")
-public class Restaurants extends Special{
+@Document(collection = "events")
+public class Restaurants{
 	
 	@Id
 	private ObjectId id;
 	
 	@Field("restaurantName")
 	private String restaurantName;
-	@Field("streetAddress")
-	private String streetAddress;
-	@Field("zipCode")
-	private int zipCode;
+	@Field("street")
+	private String street;
 	@Field("city")
 	private String city;
 	@Field("state")
 	private String state;
+	@Field("zip")
+	private int zip;
 	@Field("openHours")
 	private String openHours;
-	@Field("special")
-	private Special special;
+	@Field("happyHour")
+	private HappyHour happyHour;
+
 	
-	public Restaurants(ObjectId id, String restaurantName, String streetAddress, int zipCode, String city, String state, String openHours, Special special){
+	public Restaurants(ObjectId id, String restaurantName, String street, int zip, String city, String state, String openHours, HappyHour happyHour){
 		super();
 		this.id =id;
 		this.restaurantName=restaurantName;
-		this.streetAddress = streetAddress;
-		this.zipCode=zipCode;
+		this.street = street;
+		this.zip=zip;
 		this.city=city;
 		this.state=state;
 		this.openHours=openHours;
-		this.special=special;
+		this.happyHour=happyHour;
+
+		
+		
 	}
 
-	public Special getSpecial() {
-		return special;
-	}
 
-	public void setSpecial(Special special) {
-		this.special = special;
-	}
+	
 
 	public ObjectId get_id() {
 		return id;
@@ -75,20 +74,20 @@ public class Restaurants extends Special{
 		this.restaurantName = restaurantName;
 	}
 
-	public String getStreetAddress() {
-		return streetAddress;
+	public String getStreet() {
+		return street;
 	}
 
-	public void setStreetAddress(String streetAddress) {
-		this.streetAddress = streetAddress;
+	public void setStreet(String street) {
+		this.street = street;
 	}
 
-	public int getZipCode() {
-		return zipCode;
+	public int getZip() {
+		return zip;
 	}
 
-	public void setZipCode(int zipCode) {
-		this.zipCode = zipCode;
+	public void setZip(int zip) {
+		this.zip = zip;
 	}
 
 	public String getCity() {
@@ -112,7 +111,14 @@ public class Restaurants extends Special{
 	}
 
 	public void setOpenHours(String openHours) {
-		this.openHours = openHours;
+		this.openHours= openHours;
+	}
+	public HappyHour getHappyHour() {
+		return happyHour;
+	}
+
+	public void setHappyHour(HappyHour happyHour) {
+		this.happyHour = happyHour;
 	}
 	
 

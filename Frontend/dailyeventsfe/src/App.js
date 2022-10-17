@@ -1,14 +1,20 @@
-import logo from './logo.svg';
+import React, { Component} from 'react';
 import './App.css';
 import ListEventsComponent from './components/ListEventsComponent';
+// import ListEventsComponent from './components/ListEventsComponent';
 
-function App() {
+class App extends Component {
 
+  
+
+  render(){
   return (
-    <div className="App">
+    <div className='App'>
+      
       <ListEventsComponent></ListEventsComponent>
     </div>
-  );
+  )
+  }
 }
 
 export default App;
